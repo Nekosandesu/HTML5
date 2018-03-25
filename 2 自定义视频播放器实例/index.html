@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义播放器</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="vContainer">
+		<video id="myVideo" poster="image/poster.jpg">
+			<source src="resource/imooc.mp4" type="video/mp4">
+			<source src="resource/imooc.ogv" type="video/imooc.ogv">
+			您的浏览器不支持video标签
+		</video>
+		<div class="caption">自定义视频播放器</div>
+		<div class="control">
+			<div class="top">
+				<div class="progress">
+					<span class="timeBar"></span>
+				</div>
+				<div class="time">
+					<span id="currentTime">00:00</span>
+					<span>/</span>
+					<span id="duration">00:00</span>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="button play" id="playBtn"></div>
+				<div class="button stop" id="stopBtn"></div>
+				<div class="button text selected" id="speed1Btn">X1</div>
+				<div class="button text" id="speed3Btn">X3</div>
+				<div class="volumn">
+					<span class="volumnBar"></span>
+				</div>
+				<div class="button sound" id="soundBtn"></div>
+			</div>
+		</div>
+		<div class="loading"></div>
+	</div>
+	<script src="js/main.js"></script>
+</body>
+</html>
