@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单动画</title>
+	<style>
+		.container{
+			margin:100px;
+			position:relative;
+		}
+		input{
+			border:1px solid #999;;
+			outline:0;
+			width:140px;
+			height:30px;
+			line-height:30px;
+			text-indent:36px;
+			transition:all 0.3s;
+			border-radius:3px;
+		}
+		span.title{
+			position:absolute;
+			line-height:30px;
+			height:30px;
+			left:2px;
+			transition:all 0.3s;
+		}
+		input:focus, input:hover{
+			text-indent:2px;
+		}
+		input:focus +span.title, input:hover +span.title{
+			transform:translateX(-120%);
+		}
+		input:valid ~label::after{
+			content:"你输入的邮箱正确！";
+		}
+		input:invalid ~label::after{
+			content:"你输入的邮箱不正确！";
+		}
+		input:valid{
+			border:1px solid green;
+		}
+		input:invalid{
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<input type="email" id="mail" required placeholder="请输入邮箱">
+	<span class="title">邮箱</span>
+	<label for="mail"></label>
+</div>
+</body>
+</html>

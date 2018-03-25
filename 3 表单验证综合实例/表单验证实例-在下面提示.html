@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改默认提示气泡</title>
+	<style>
+		.onelist{
+			line-height:1.5;
+			margin:10px auto;
+		}
+		.onelist label{
+			width:100px;
+			text-indent:15px;
+			font-size:14px;
+			font-family:"Microsoft Yahei";
+			display:inline-block;
+		}
+		.onelist .sinput{
+			width:60%;
+			height:30px;
+			border-radius:6px;
+			border:1px solid #e2e2e2;
+		}
+		.onelist input[type="submit"]{
+			margin-left:20px;
+			width:80px;
+			height:30px;
+			border:0;
+			background-color:#5899d0;
+			color:#fff;
+			font-size:14px;
+			border-radius:6px;
+		}
+		.error-message{
+			color:red;
+			font-size:12px;
+			text-indent:108px;
+		}
+
+	</style>
+</head>
+<body>
+	<form action="#" id="forms">
+		<div class="onelist">
+			<label for="name">用户名：</label>
+			<input type="text" id="name" name="name" class="sinput" required>
+		</div>
+
+		<div class="onelist">
+			<label for="email">Email：</label>
+			<input type="email" id="email" name="email" class="sinput" required>
+		</div>
+
+		<div class="onelist">
+			<input type="submit" value="提交" id="submit">
+		</div>
+	</form>
+
+	<script>
+		function replaceInvalidityUi(form){
+			//阻止默认事件
+			form.addEventListener("invalid",function(event){
+				event.preventDefault();
+			},true);
+			form.addEventListener("submit",function(){
+				if (!this.checkValidity()) {
+                	event.preventDefault();
+            	}
+			},true);
+
+			//添加自定义的提示气泡——在下面提示
+			var submitBtn=document.getElementById("submit");
+			submitBtn.addEventListener("click",function(event){
+				var inValidityField=form.querySelectorAll(":invalid"),
+				errorMessage=form.querySelectorAll(".error-message"),
+				parent;
+				for(var i=0;i<errorMessage.length;i++){
+					errorMessage[i].parentNode.removeChild(errorMessage[i]);
+				}				
+				for(var i=0;i<inValidityField.length;i++){
+					parent=inValidityField[i].parentNode;
+					parent.insertAdjacentHTML("beforeend","<div class='error-message'>"+inValidityField[i].validationMessage+"</div>");
+				}	
+				if(inValidityField.length>0){
+					inValidityField[0].focus();
+				}
+			});			
+		}
+		var form=document.getElementById("forms");
+		replaceInvalidityUi(form);
+	</script>
+</body>
+</html>
