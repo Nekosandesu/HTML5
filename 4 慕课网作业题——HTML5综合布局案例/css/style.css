@@ -41,11 +41,11 @@ header .container nav a:hover {background-color: red;color: #2e2e2e;font-weight:
 .team .team-item .intro {width: 200px;margin-top: 10px;font-size: 0.8em;}
 
 /*contact*/
-.contact input {display: block;margin: 5px auto;border: 1px solid #C0C0C0;}
-.contact input[type=text] {margin-right: 16px;}
-.contact input[type=text], .contact input[type=email] {width: 363px;height: 40px;display: inline-block;}
-.contact input[type=textarea] {width: 750px;height: 200px;margin-top: ;}
-.contact input[type=submit] {width: 150px;height: 40px;background-color: #f46208;color: #fff;border: none;margin: 20px auto 80px;}
+.contact input, textarea {display: block;margin: 5px auto;border: 1px solid #C0C0C0;text-align: left;}
+.contact input[type=text] {margin-right: 8px;}
+.contact input[type=text], .contact input[type=email] {width: 363px;height: 40px;display: inline-block;padding: 0 5px;}
+.contact textarea {width: 750px;height: 200px;padding:5px;}
+.contact input[type=submit] {width: 150px;height: 40px;text-align: center;cursor: pointer;background-color: #f46208;color: #fff;border: none;margin: 20px auto 80px;}
 
 /*contact*/
 footer {background-color: #2e2e2e;color: #fff;height: 80px;}
